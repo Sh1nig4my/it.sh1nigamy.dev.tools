@@ -2,9 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Work in Progress</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Inter', sans-serif;
+        color: white;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    .logo {
+        max-width: 200px;
+        margin-bottom: 20px;
+    }
+    .message {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+     footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(5px);
+    }
+
+    .footer-container {
+        width: 90%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .logo img {
+        width: 60px;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .logo img:hover {
+        transform: scale(1.1);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-button {
+        padding: 10px 15px;
+        background-color: green;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .social-button:hover {
+        background-color: #777;
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .message {
+            font-size: 1.2rem;
+        }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <video autoplay muted loop>
+    <source src="./media/workinprogress.mp4" type="video/mp4">
+    Il tuo browser non supporta il tag video.
+  </video>
+
+  <!--div class="overlay">
+    <img src="../workinprogress/media/logo.png" alt="Logo Azienda" class="logo">
+    <p class="message">Stiamo lavorando al nostro nuovo sito. Torneremo presto online con qualcosa di straordinario.</p>
+  </div-->
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="logo">
+      <img src="./media/logo.png" alt="Logo Aziendale">
+    </div>
+    <div class="social-links">
+      <a href="#" class="social-button">Instagram</a>
+      <a href="mailto:infoevolvecompany@gmail.com" class="social-button">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+</title>
 </head>
 <body>
-$END$
+
 </body>
 </html>
