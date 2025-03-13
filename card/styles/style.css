@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biglietto da Visita Interattivo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
+body {
         font-family: 'Poppins', sans-serif;
         margin: 0;
         padding: 0;
@@ -100,7 +92,21 @@
             max-height: 80vh;
         }
     }
+
     /* Stile del Footer */
+
+top {
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 0.9em;
+    color: #ddd;
+    background: rgba(0, 0, 0, 0.3);
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+}
+
 footer {
     width: 100%;
     text-align: center;
@@ -115,7 +121,7 @@ footer {
 
 .hint {
     font-style: italic;
-    font-size: 0.9em;
+    font-size: 0.7em;
 }
 
 .copyright {
@@ -123,61 +129,3 @@ footer {
     margin-top: 5px;
     opacity: 0.7;
 }
-  </style>
-</head>
-<body>
-<div class="card-container" id="cardContainer" tabindex="0">
-  <div class="card" id="card">
-    <div class="card-face front">
-      <img class="profile-img" src="profile.jpg" alt="Foto Profilo">
-      <h1>Mario Rossi</h1>
-      <p class="subtitle">Personal Trainer Certificato</p>
-      <div class="contact">
-        <a href="tel:+39123456789">📞 Chiama</a>
-        <a href="mailto:mario.rossi@email.com">📧 Email</a>
-      </div>
-    </div>
-    <div class="card-face back">
-      <h1>Servizi Offerti</h1>
-      <p>🏋️‍♂️ Personal Training</p>
-      <p>🥗 Consulenze Nutrizionali</p>
-    </div>
-  </div>
-</div>
-<footer>
-  <p class="hint">👉 Tocca, fai doppio clic o premi Enter per girare il biglietto 👈</p>
-  <p class="copyright">© 2025 Mario Rossi. Tutti i diritti riservati.</p>
-</footer>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      const card = document.getElementById("card");
-      let startX, isTouching = false;
-
-      function toggleFlip() {
-          card.classList.toggle("flipped");
-      }
-
-      document.getElementById("cardContainer").addEventListener("dblclick", toggleFlip);
-      document.getElementById("cardContainer").addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-              toggleFlip();
-          }
-      });
-
-      document.getElementById("cardContainer").addEventListener("touchstart", (e) => {
-          isTouching = true;
-          startX = e.touches[0].clientX;
-      });
-
-      document.getElementById("cardContainer").addEventListener("touchmove", (e) => {
-          if (!isTouching) return;
-          let endX = e.touches[0].clientX;
-          if (Math.abs(endX - startX) > 50) {
-              toggleFlip();
-              isTouching = false;
-          }
-      });
-  });
-</script>
-</body>
-</html>
