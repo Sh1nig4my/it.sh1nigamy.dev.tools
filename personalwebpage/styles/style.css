@@ -28,16 +28,25 @@ body {
 }
 
 .card {
+    display: flex; /* Se vuoi un layout flessibile */
+    flex-direction: column; /* Per impilare gli elementi verticalmente */
+    align-items: stretch; /* Assicura che i figli occupino tutta la larghezza */
+    justify-content: flex-start; /* Allinea gli elementi dall'alto */
+    min-height: 100px; /* Altezza minima per evitare carte troppo piccole */
+
     width: 100%;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+
+.card-content {
+    flex-grow: 1; /* Permette al contenuto di occupare spazio senza restringersi */
+    overflow-wrap: break-word; /* Impedisce al testo di uscire */
 }
 
 .flipped {
@@ -69,7 +78,7 @@ body {
 .profile-img {
     width: 130px;
     height: 130px;
-    border-radius: 50%;
+    border-radius: 40%;
     border: 4px solid #00ffcc;
     object-fit: cover;
     margin-bottom: 15px;
@@ -122,7 +131,7 @@ footer {
 
 .hint {
     font-style: italic;
-    font-size: 0.8em;
+    font-size: 0.5em;
     color: white;
 }
 
