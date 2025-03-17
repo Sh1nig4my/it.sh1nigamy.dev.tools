@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biglietto da Visita Interattivo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+
+<div class="card-container" id="cardContainer" tabindex="0">
+  <div class="card" id="card">
+
+    <div class="card-face">
+      <img class="profile-img" src="./img/emanueleienna.jpg" alt="Foto Profilo">
+      <div class="contact">
+        <h1>Emanuele Ienna</h1>
+        <p class="subtitle">Senior Dev | 3D Modeler & Maker | Blockchain Solutions Expert</p>
+        <p>💻 Sviluppo Software</p>
+        <p>💡 Soluzioni Tecnologiche su Misura </p>
+        <p>🛠️ Progettazione & Stampa 3D</p>
+        <!--a href="tel:+393923750105">📞 Chiama</a-->
+        <a href="https://wa.me/3923750105?text=Buongiorno%2C%20sarei%20interessato%20a%20una%20consulenza.%20Quando%20sarebbe%20disponibile%20per%20sentirci%3F">🎯 Richiedi una Consulenza</a>
+        <a href="https://www.evolve3d.it/card/team/emanueleienna/emanueleienna.vcf">✉️ I miei Contatti</a>
+        <!--a href="https://www.instagram.com/evolve3dcompany/profilecard/?igsh=dGd5dno2aTRvcXJw" target="_blank">📸 Instagram</a-->
+        <div class="copyright">
+          <p>© 2025 Powered by EvolveCompany. Tutti i diritti riservati.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card-face back">
+      <h1>Esperienza & Servizi</h1>
+      <div class="services">
+        <p>🤖 <strong>Automazione e Ottimizzazione per migliorare efficienza e produttività aziendale.</strong>
+          <br>
+        </p>
+        <p>💻 <strong>Sviluppo Software Personalizzato</strong>
+          <br>
+        </p>
+        <p>🌐 <strong>Creazione di Siti Web e Web App</strong>
+          <br>
+        </p>
+        <p>🛠️ <strong>Progettazione e Stampa 3D</strong>
+          <br>Modellazione e realizzazione di oggetti e prototipi personalizzati.</p>
+        <p>🔗 <strong>Blockchain & Tecnologie Decentralizzate</strong>
+          <br>
+        </p>
+        <p>🚀 <strong>Supporto nell'adozione di nuove tecnologie per aziende.</strong>
+          <br>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p class="hint">👉 Tocca, fai doppio clic o premi Enter per girare il biglietto 👈</p>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+        const card = document.getElementById("card");
+        let startX, isTouching = false;
+
+        function toggleFlip() {
+            card.classList.toggle("flipped");
+        }
+
+        document.getElementById("cardContainer").addEventListener("dblclick", toggleFlip);
+        document.getElementById("cardContainer").addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                toggleFlip();
+            }
+        });
+
+        document.getElementById("cardContainer").addEventListener("touchstart", (e) => {
+            isTouching = true;
+            startX = e.touches[0].clientX;
+        });
+
+        document.getElementById("cardContainer").addEventListener("touchmove", (e) => {
+            if (!isTouching) return;
+            let endX = e.touches[0].clientX;
+            if (Math.abs(endX - startX) > 50) {
+                toggleFlip();
+                isTouching = false;
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>
