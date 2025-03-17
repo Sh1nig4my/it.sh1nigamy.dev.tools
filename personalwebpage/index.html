@@ -11,10 +11,10 @@
 
 <body>
 
-<div class="card-container" id="cardContainer" tabindex="0">
+<div class="card-container" id="cardContainer">
   <div class="card" id="card">
     <div class="card-face">
-      <img class="profile-img" src="./img/emanueleienna.jpg" alt="Foto Profilo">
+      <img class="profile-img" src="./img/emanueleienna.jpg" alt="Foto di Emanuele Ienna, sviluppatore e maker 3D">
       <div class="contact">
         <h1>Emanuele Ienna</h1>
         <!-- INFO FACE -->
@@ -26,7 +26,7 @@
         <!--a href="tel:+393923750105">📞 Chiama</a-->
         <a href="https://wa.me/3923750105?text=Buongiorno%2C%20sarei%20interessato%20a%20una%20consulenza.%20Quando%20sarebbe%20disponibile%20per%20sentirci%3F">🎯 Richiedi una Consulenza</a>
         <!--a href="https://www.instagram.com/evolve3dcompany/profilecard/?igsh=dGd5dno2aTRvcXJw" target="_blank">📸 Instagram</a-->
-        <p class="copyright">👉 Tocca, fai doppio clic o premi Enter per girare il biglietto 👈</p>
+        <p class="hint">👉 Tocca, fai doppio clic o premi Enter per girare il biglietto 👈</p>
       </div>
     </div>
 
@@ -78,12 +78,19 @@
 
         document.getElementById("cardContainer").addEventListener("touchmove", (e) => {
             if (!isTouching) return;
+            e.preventDefault();
+
             let endX = e.touches[0].clientX;
             if (Math.abs(endX - startX) > 50) {
                 toggleFlip();
                 isTouching = false;
             }
         });
+
+        document.getElementById("cardContainer").addEventListener("touchend", () => {
+            isTouching = false;
+        });
+
     });
 </script>
 
