@@ -18,7 +18,7 @@ body {
     max-width: 400px;
     height: 80vh;
     max-height: 700px;
-    position: absolute;
+    position: relative;
     perspective: 1200px;
     display: flex;
     justify-content: center;
@@ -45,6 +45,7 @@ body {
 .card-content {
     flex-grow: 1; /* Permette al contenuto di occupare spazio senza restringersi */
     overflow-wrap: break-word; /* Impedisce al testo di uscire */
+    margin-bottom: 15px; /* Spaziatura tra le sezioni */
 }
 
 .flipped {
@@ -72,6 +73,11 @@ body {
     -ms-overflow-style: none; /* Nasconde la scrollbar su Internet Explorer e Edge */
 }
 
+/* Aggiunto per WebKit (Chrome, Safari, Edge basato su Chromium) */
+.card-face::-webkit-scrollbar {
+    display: none;
+}
+
 .back {
     transform: rotateY(180deg);
 }
@@ -80,7 +86,7 @@ body {
     width: 130px;
     height: 130px;
     border-radius: 50%;
-    border: 2px solid #00ffcc;
+    border: 2px solid rgba(0, 255, 204, 0.8);;
     object-fit: cover;
     margin-bottom: 20px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -97,7 +103,7 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     color: #00ffcc;
-    padding: 12px 25px;
+    padding: 10px 20px;
     border-radius: 10px;
     border: 2px solid #00ffcc;
     transition: all 0.3s ease-in-out;
@@ -126,7 +132,7 @@ footer {
     justify-content: center; 
     align-items: flex-end; /* Allinea verticalmente */
     padding: 10px 20px; /* Margini interni */
-    position: relative;
+    position: fixed;
     left: 0;
 }
 
