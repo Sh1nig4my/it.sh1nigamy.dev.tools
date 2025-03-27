@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Redirect Profilo</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          padding: 50px;
+        }
+
+        .message {
+          font-size: 1.2em;
+          color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="message" id="message">Caricamento in corso...</div>
+
+<script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function redirectByProfilo(profilo) {
+      let destinationUrl;
+
+      switch (profilo) {
+        case "Emanuele":
+          destinationUrl = "team/emanueleienna/card_emanueleienna.html";
+          break;
+        case "Giulia":
+          destinationUrl = "giulia.html";
+          break;
+        case "Marco":
+          destinationUrl = "marco.html";
+          break;
+        // Aggiungi altri profili qui
+        default:
+          destinationUrl = "404.html"; // pagina di fallback se il profilo non è valido
+      }
+
+      // Mostra messaggio e reindirizza dopo breve attesa
+      document.getElementById("message").textContent = `Reindirizzamento al profilo di ${profilo}...`;
+
+      setTimeout(() => {
+        window.location.href = destinationUrl;
+      }, 1000); // attesa di 1 secondo per mostrare il messaggio
+    }
+
+    const profilo = getQueryParam("profilo");
+
+    if (profilo) {
+      redirectByProfilo(profilo);
+    } else {
+      document.getElementById("message").textContent = "Nessun profilo specificato nella URL.";
+    }
+</script>
+</body>
+</html>

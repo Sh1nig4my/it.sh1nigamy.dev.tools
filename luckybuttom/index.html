@@ -34,13 +34,14 @@
 
 <script>
   function playGame() {
-      let random = Math.random();
-      if (random < 0.5) {
-          window.location.href = 'win.html';
-      } else {
-          window.location.href = 'lose.html';
-      }
-  }
+    let chanceToWin = 1 / 35;
+    let random = Math.random();
+    if (random < chanceToWin) {
+        window.location.href = 'win.html';
+    } else {
+        window.location.href = 'lose.html';
+    }
+}
 </script>
 
 </html>
